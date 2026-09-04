@@ -15,3 +15,6 @@ print('Catergory:', category)
 
 if age>40 and category == "fun":
     print("You are old, what is fun for you?")
+
+print('change')
+    
