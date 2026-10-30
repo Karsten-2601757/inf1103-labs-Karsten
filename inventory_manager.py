@@ -46,6 +46,39 @@ class Product:
     def from_dict(cls, data):
         """Creates a Product from a dictionary (used for JSON loading)."""
         return cls(data["id"], data["name"], data["price"], data["stock"])
+
+class Inventory:
+    """Manages a collection of Product objects."""
+
+    def __init__(self):
+        self.__products = []
+
+    def add_product(self, product):
+        """Adds a product. Returns False if the ID already exists."""
+        if self.search_product(product.get_product_id()) is not None:
+            return False
+        self.__products.append(product)
+        return True
+
+    def search_product(self, product_id):
+        """Returns the matching Product (case-insensitive ID) or None."""
+        for product in self.__products:
+            if product.get_product_id().upper() == product_id.strip().upper():
+                return product
+        return None
+
+    def display_all(self):
+        print("\nCurrent Inventory")
+        if not self.__products:
+            print("No products available.\n")
+            return
+        for product in self.__products:
+            product.display_information()
+        print()
+
+    def to_list(self):
+        """Returns the inventory as a list of dictionaries (for saving)."""
+        return [product.to_dict() for product in self.__products]
     
 def load_inventory():
     """Loads inventory data from inventory.json if it exists, otherwise initializes default items."""
