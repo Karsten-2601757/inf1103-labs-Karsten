@@ -4,15 +4,15 @@ from abc import ABC, abstractmethod
 
 FILENAME = "inventory.json"
 
-class CanBeShipped(ABC):
-    """Interface-style contract: anything that can be shipped."""
 
+# ---------- Interface (contract) ----------
+class CanBeShipped(ABC):
+ 
     @abstractmethod
     def calculate_shipping_cost(self):
-        """Implementing classes must return a shipping cost."""
         pass
 
-class Product:
+class Product(ABC):
 
     def __init__(self, product_id, name, price, stock):
         if price < 0 or stock < 0:
@@ -43,6 +43,11 @@ class Product:
     def display_information(self):
         print(f"ID: {self.__product_id} | Name: {self.__name} | "
               f"Price: ${self.__price:.2f} | Stock: {self.__stock}")
+
+    @abstractmethod
+    def get_fulfilment_info(self):
+        """Each product type must say how it is fulfilled."""
+        pass
 
     def to_dict(self):
         return {
