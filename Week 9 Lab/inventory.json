@@ -1,20 +1,18 @@
 [
     {
-        "id": "desktop",
-        "name": "DESKTOP",
-        "price": 1500.0,
-        "stock": 0
+        "id": "G1",
+        "name": "Guitar",
+        "price": 500.0,
+        "stock": 3,
+        "type": "physical",
+        "weight": 4.5
     },
     {
-        "id": "2",
-        "name": "Mouse",
-        "price": 15.0,
-        "stock": 12
-    },
-    {
-        "id": "1",
-        "name": "computer monitor",
-        "price": 150.0,
-        "stock": 50
+        "id": "OS1",
+        "name": "Linux OS",
+        "price": 0.0,
+        "stock": 99,
+        "type": "digital",
+        "download_size": 2500.0
     }
 ]
