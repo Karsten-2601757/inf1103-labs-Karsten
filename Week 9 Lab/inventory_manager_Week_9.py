@@ -2,10 +2,12 @@ import json
 import os
 from abc import ABC, abstractmethod
 
+
+
 FILENAME = "inventory.json"
 
 
-# ---------- Interface (contract) ----------
+
 class CanBeShipped(ABC):
  
     @abstractmethod
@@ -57,6 +59,8 @@ class Product(ABC):
             "stock": self.__stock,
         }
 
+
+
 class PhysicalProduct(Product, CanBeShipped):
     """A product that is stored and shipped. Single inheritance from
     Product, plus the CanBeShipped interface."""
@@ -95,7 +99,6 @@ class PhysicalProduct(Product, CanBeShipped):
         return cls(data["id"], data["name"], data["price"],
                    data["stock"], data["weight"])
 class DigitalProduct(Product):
-    """A product delivered by download. Not shippable."""
  
     def __init__(self, product_id, name, price, stock, download_size):
         super().__init__(product_id, name, price, stock)
@@ -123,7 +126,6 @@ class DigitalProduct(Product):
     def from_dict(cls, data):
         return cls(data["id"], data["name"], data["price"],
                    data["stock"], data["download_size"])
- 
  
 # Maps the saved "type" to the class that rebuilds it.
 PRODUCT_TYPES = {
@@ -229,7 +231,6 @@ def add_product_menu(inventory):
 
     inventory.add_product(product)
     print("Product added successfully!\n")
-
 
 def update_stock_menu(inventory):
     print("\nUpdate Stock")
