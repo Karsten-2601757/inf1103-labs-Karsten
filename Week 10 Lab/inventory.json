@@ -1,0 +1,34 @@
+{
+    "suppliers": [
+        {
+            "id": "S1",
+            "name": "Acme Instruments",
+            "contact_email": "sales@acme.example"
+        },
+        {
+            "id": "S2",
+            "name": "OpenSoft Distribution",
+            "contact_email": "hello@opensoft.example"
+        }
+    ],
+    "products": [
+        {
+            "id": "G1",
+            "name": "Guitar",
+            "price": 500.0,
+            "stock": 3,
+            "supplier_id": "S1",
+            "type": "physical",
+            "weight": 4.5
+        },
+        {
+            "id": "OS1",
+            "name": "Linux OS",
+            "price": 0.0,
+            "stock": 99,
+            "supplier_id": "S2",
+            "type": "digital",
+            "download_size": 2500.0
+        }
+    ]
+}
